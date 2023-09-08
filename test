@@ -1,0 +1,33 @@
+import random
+
+def get_capitals():
+    # Define a dictionary with country-capital pairs
+    capitals = {
+        "Country1": "Capital1",
+        "Country2": "Capital2",
+        # Add more country-capital pairs as needed
+    }
+    return capitals
+
+def play_game():
+    capitals = get_capitals()
+    countries = list(capitals.keys())
+    score = 0
+
+    # Shuffle the order of countries
+    random.shuffle(countries)
+
+    for country in countries:
+        capital = capitals[country]
+        guess = input(f"What is the capital of {country}? ")
+
+        if guess.lower() == capital.lower():
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Wrong! The correct answer is {capital}.")
+
+    print(f"Your final score is {score}/{len(countries)}.")
+
+# Start the game
+play_game()
